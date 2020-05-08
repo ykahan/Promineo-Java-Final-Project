@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,15 +14,6 @@ class CustomerUtilImplTest {
 	
 	private List<Customer> customers;
 	private CustomerUtil util;
-	
-	/*
-
-	//find state that owes the most
-	public String calculateStateWithGreatestReceivables(List<Customer> customers);
-	
-	//take custId and billId and mark bill as paid 
-	public Bill markBillAsPaid(List<Customer> customers, String customerId, String billId);
-	 */
 
 	@Test
 	void testCalculateBillTotal() {
