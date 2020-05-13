@@ -14,4 +14,12 @@ public interface EmployeeUtil {
 	
 	public int calculateTotalCompletedHours(Employee employee);
 	
+	public Employee findEmployeeWithMostIncompleteTaskHours(List<Employee> employees);
+	
+	public int calculateTotalTaskHoursByState  (List<Employee> employees, String stateName);
+	
+	public String findStateWithMostIncompleteTaskHours(List<Employee> employees);
+	
+	public Project markProjectAsComplete(List<Employee> employees, String employeeId, String taskId);
+	
 }

@@ -14,7 +14,7 @@ class CustomerUtilImplTest {
 	
 	private List<Customer> customers;
 	private CustomerUtil util;
-
+	
 	@Test
 	void testCalculateBillTotal() {
 		populateCustomers();
