@@ -1,4 +1,5 @@
 package customers;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
@@ -8,9 +9,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Test;
 
-class CustomerUtilImplTest {
+class CustomerUtilImplTest<CustomerUtil> {
 	
 	private List<Customer> customers;
 	private CustomerUtil util;
