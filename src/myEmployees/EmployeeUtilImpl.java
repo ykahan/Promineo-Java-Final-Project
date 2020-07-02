@@ -33,14 +33,15 @@ public class EmployeeUtilImpl implements EmployeeUtil{
     public List<Project> findProjectsDueInXDays(Employee employee, int xDays) {
         List<Project> projectsDueWithinXDays = new ArrayList<>();
         for(Project project: employee.getAllProjects()){
-            Date expectedCompletionDate = project.getExpectedCompletionDate();
-            Date current = new java.util.Date();
-            if(!expectedCompletionDate.before(current)){
-                long diffInMillies = expectedCompletionDate.getTime() - current.getTime();
-                long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-                if(diffInDays <= xDays) projectsDueWithinXDays.add(project);
+            if(!project.isComplete) {
+                Date expectedCompletionDate = project.getExpectedCompletionDate();
+                Date current = new java.util.Date();
+                if (!expectedCompletionDate.before(current)) {
+                    long diffInMillies = expectedCompletionDate.getTime() - current.getTime();
+                    long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                    if (diffInDays <= xDays) projectsDueWithinXDays.add(project);
+                }
             }
-
         }
         return projectsDueWithinXDays;
     }
