@@ -13,6 +13,10 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
+    public Employee(){
+
+    }
+
     public int getCumulativeTaskHours(){
         int taskHours = 0;
         for(Project project: projects){
