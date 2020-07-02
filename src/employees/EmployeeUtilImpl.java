@@ -29,7 +29,7 @@ public class EmployeeUtilImpl implements EmployeeUtil{
 
 	@Override
 	public List<Project> findPastDueProjects(Employee employee) {
-		List<Project> pastDueProjects = new ArrayList<Project>();
+		List<Project> pastDueProjects = new ArrayList<>();
 		for (Project project : employee.getProjects()) {
 			if (!project.isComplete() && project.getExpectedCompletionDate().compareTo(new Date()) < 0) {
 				pastDueProjects.add(project);
@@ -40,7 +40,7 @@ public class EmployeeUtilImpl implements EmployeeUtil{
 
 	@Override
 	public List<Project> findProjectsDueInXDays(Employee employee, int numOfDays) {
-		List<Project> dueProjects = new ArrayList<Project>();
+		List<Project> dueProjects = new ArrayList<>();
 		for (Project project : employee.getProjects()) {
 			Long diffInDays = TimeUnit.DAYS.convert(project.getExpectedCompletionDate().getTime() 
 					- new Date().getTime(), TimeUnit.MILLISECONDS);
