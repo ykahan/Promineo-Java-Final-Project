@@ -11,6 +11,7 @@ public class CustomerUtilImpl implements CustomerUtil{
             total += lineItem.getPrice();
         }
         return total;
+//        return 28.04;
     }
 
     @Override
@@ -115,7 +116,7 @@ public class CustomerUtilImpl implements CustomerUtil{
         double totalBills = 0.0;
         for(Customer customer: customers){
             if(customer.getAddress().getState().contentEquals(state)){
-                totalBills = calculateCustomerTotal(customer);
+                totalBills += calculateCustomerTotal(customer);
             }
         }
         return totalBills;
@@ -146,9 +147,10 @@ public class CustomerUtilImpl implements CustomerUtil{
 
     private Map createStateAndReceivablesMap(List<Customer> customers) {
         Map<String, Double> statesAndReceivables = new HashMap<>();
+        Set<String> states;
         for(Customer customer: customers) {
             String state = customer.getAddress().getState();
-            Set<String> states = statesAndReceivables.keySet();
+            states = statesAndReceivables.keySet();
             if (!states.contains(state)) {
                 double receivables = calculateTotalReceivableByState(customers, state);
                 statesAndReceivables.put(state, receivables);
